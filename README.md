@@ -8,7 +8,7 @@
 
 **[서비스 바로가기]**
 
-🔗 https://www.highlightalk.site/
+🔗 https://highligh-talk-cghb.vercel.app/
 
 **[테스트용 계정]**
 
