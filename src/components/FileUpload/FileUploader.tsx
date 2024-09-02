@@ -107,7 +107,7 @@ function FileUpLoader() {
       });
 
       const data = await response.json();
-      router.push(`${fullURL}/${pathname}/${data?.secondData?.item._id}`);
+      router.push(`${fullURL}${pathname}/${data?.secondData?.item._id}`);
     } catch (error) {
       console.error('Error fetching data:', error);
     } finally {
