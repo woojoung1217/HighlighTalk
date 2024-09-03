@@ -4,6 +4,7 @@
 >
 > <strong>Chat-GPT API를 활용한 카카오톡 채팅방 AI 분석 서비스</strong>
 
+
 <img src="https://media.discordapp.net/attachments/1265960001546096725/1278044560622096575/image.png?ex=66cf5f40&is=66ce0dc0&hm=38395335c441f893782e129178e6b262dcef0f105bef503899005ec7dd40cde4&=&format=webp&quality=lossless&width=1172&height=979">
 
 **[서비스 바로가기]**
