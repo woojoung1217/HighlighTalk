@@ -9,7 +9,14 @@
 
 **[서비스 바로가기]**
 
-🔗 https://highligh-talk-cghb.vercel.app/
+> ** vercel용 배포
+
+🔗 https://highligh-talk-cghb.vercel.app/ 
+
+> ** aws용 배포
+
+🔗 https://www.highlightalk.site/
+
 
 **[테스트용 계정]**
 
