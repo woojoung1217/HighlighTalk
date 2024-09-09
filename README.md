@@ -464,7 +464,7 @@ export default FreeTestContainer;
 
 ## 문제점
 
-- funnel 형태로 코드를 구현하다 보니 최초의 한번 로딩 될 때 너무 무거운 코드를 한번에 가져와서 성능적으로 많이 느려지고 사용자가 비교적 오랜 시간 화면이 로딩 되기 까지 기다려야함
+- [Funnel](https://toss.tech/article/engineering-note-1)  형태로 코드를 구현하다 보니 최초의 한번 로딩 될 때 너무 무거운 코드를 한번에 가져와서 성능적으로 많이 느려지고 사용자가 비교적 오랜 시간 화면이 로딩 되기 까지 기다려야함
 
 ![image](https://github.com/user-attachments/assets/343db272-1211-4452-a01c-41af4d102e01)
 
