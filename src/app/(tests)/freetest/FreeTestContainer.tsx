@@ -1,10 +1,11 @@
 'use client';
-
-import { useState } from 'react';
+import React, { lazy, Suspense, useState } from 'react';
 import './_FreeTestPage.scss';
-import FileUpLoader from '@/components/FileUpload/FileUploader';
-import ProtectedRoute from '@/components/ProtectedRoute/ProtectedRoute';
 import { shareURL } from '@/utils/shareURL';
+import { LoadingSpinner } from '@/components/Spinner/Spinner';
+
+const FileUpLoader = lazy(() => import('@/components/FileUpload/FileUploader'));
+const ProtectedRoute = lazy(() => import('@/components/ProtectedRoute/ProtectedRoute'));
 
 function FreeTestContainer({ totalCount }: { totalCount: number }) {
   const [currentStep, setCurrentStep] = useState(1);
@@ -57,16 +58,12 @@ function FreeTestContainer({ totalCount }: { totalCount: number }) {
       )}
 
       {currentStep === 2 && (
-        <>
-          {/* 현재 로그인 안 한  사용자만 잡는중  */}
+        <Suspense fallback={<LoadingSpinner />}>
           <ProtectedRoute setCurrentStep={setCurrentStep}>
-            {/* 인증된 사용자만 이 부분이 렌더링됨 */}
             <FileUpLoader />
           </ProtectedRoute>
-        </>
+        </Suspense>
       )}
-
-      {/* <PayModal /> */}
     </div>
   );
 }

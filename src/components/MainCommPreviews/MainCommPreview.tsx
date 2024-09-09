@@ -23,8 +23,6 @@ async function MainCommPreview() {
     ?.sort((a: { views: number }, b: { views: number }) => b.views - a.views)
     .slice(0, 3);
 
-  // console.log('Top 3 Items:', topThreeItems);
-
   return (
     <div className="mainComm">
       <h1 className="pre-title">
@@ -32,9 +30,8 @@ async function MainCommPreview() {
         <Link href={`/posts`}>자유 게시판 &gt;</Link>
       </h1>
       <div className="mainCommPre-cover">
-        {topThreeItems.map((item, _) => {
-          return <MainCommPreviewItem key={item._id} data={item} />;
-        })}
+        {topThreeItems?.length > 0 &&
+          topThreeItems.map((item) => <MainCommPreviewItem key={item._id} data={item} />)}
       </div>
     </div>
   );

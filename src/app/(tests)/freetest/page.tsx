@@ -19,6 +19,7 @@ const getData = async () => {
         'Content-Type': 'application/json',
         'client-id': `${CLIENT_ID}`,
       },
+      cache: 'force-cache',
     });
 
     if (!response.ok) {
@@ -36,8 +37,6 @@ async function TestPage() {
   const data = await getData();
   const totalCount = data[0]?._id;
 
-  // console.log(totalCount);
-  // 리랜더 되는 현상 제거
   return <>{totalCount ? <FreeTestContainer totalCount={totalCount} /> : null}</>;
 }
 

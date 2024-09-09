@@ -19,6 +19,7 @@ export async function getNoticeData() {
         'Client-ID': `${CLIENT_ID}`,
         Authorization: `Bearer ${accessToken}`,
       },
+      cache: 'force-cache',
     });
 
     if (!res.ok) {
@@ -27,7 +28,6 @@ export async function getNoticeData() {
     }
 
     const resJson = await res.json();
-    revalidateTag('posts');
 
     if (resJson && resJson.item) {
       return resJson.item;

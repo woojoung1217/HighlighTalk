@@ -4,19 +4,17 @@
 >
 > <strong>Chat-GPT API를 활용한 카카오톡 채팅방 AI 분석 서비스</strong>
 
-
 <img src="https://media.discordapp.net/attachments/1265960001546096725/1278044560622096575/image.png?ex=66cf5f40&is=66ce0dc0&hm=38395335c441f893782e129178e6b262dcef0f105bef503899005ec7dd40cde4&=&format=webp&quality=lossless&width=1172&height=979">
 
 **[서비스 바로가기]**
 
-> ** vercel용 배포
+> \*\* vercel용 배포
 
-🔗 https://highligh-talk-cghb.vercel.app/ 
+🔗 https://highligh-talk-cghb.vercel.app/
 
-> ** aws용 배포
+> \*\* aws용 배포
 
 🔗 https://www.highlightalk.site/
-
 
 **[테스트용 계정]**
 
@@ -271,7 +269,6 @@ AWS EC2를 통해, HTTP로 클라이언트 앱을 배포하였습니다. 그러�
 
 이후 Route53을 통해 www.highlightalk.site에 대한 호스팅 영역 레코드를 생성해줌으로써 인증서가 유효한 URL로 사용자가 접근 가능하도록 조치하였습니다.
 
-
 ### 5-4. 프롬프팅 데이터 생성 후 결과를 서버에 저장해야 하는 이슈
 
 문제 : 대화 내용이 민감한 정보를 포함할 수 있기 때문에, 이를 클라이언트에서 안전하게 전송하고 저장하는 과정에서 보안적인 이슈가 발생 했습니다.
@@ -302,10 +299,9 @@ AWS EC2를 통해, HTTP로 클라이언트 앱을 배포하였습니다. 그러�
 
 - PR 후 적극적인 코드리뷰
 
-  - 코드리뷰 예시1  https://github.com/FRONTENDSCHOOLPLUS2/HighlighTalk/pull/95  
-  - 코드리뷰 예시2  https://github.com/FRONTENDSCHOOLPLUS2/HighlighTalk/pull/111  
-  - 코드리뷰 예시3  https://github.com/FRONTENDSCHOOLPLUS2/HighlighTalk/pull/66  
-
+  - 코드리뷰 예시1 https://github.com/FRONTENDSCHOOLPLUS2/HighlighTalk/pull/95
+  - 코드리뷰 예시2 https://github.com/FRONTENDSCHOOLPLUS2/HighlighTalk/pull/111
+  - 코드리뷰 예시3 https://github.com/FRONTENDSCHOOLPLUS2/HighlighTalk/pull/66
 
 - 실무와 유사한 개발 환경 조성을 위해 많은 시도
 
@@ -344,7 +340,3 @@ AWS EC2를 통해, HTTP로 클라이언트 앱을 배포하였습니다. 그러�
 - **설하**: GPT와 토큰 사용에 관하여 기획을 하면서 현실적인 부분들을 많이 고려할 수밖에 없었던 프로젝트지 않나 싶습니다. 기획의 결과 기능부터 구현하고 스타일을 입히는 방식이어서 다들 불안함이 많았을텐데, 아직 개선할 부분이 남아있다곤 하나 데모데이 기준 만족할 만한 결과물이 나와 기쁩니다. 로그인, 회원가입, 결제 등 유저와 관련한 파트를 일임해서 진행하였는데 처음에는 익숙하지 않은 영역이었지만 탄탄한 코드의 중요성과 그 역할을 깊이 이해하게 되었습니다.
 
 - **우중**: 이번 프로젝트를 통해 프론트엔드 개발의 범주를 넘어 기획과 디자인 등 다양한 분야를 경험할 수 있었습니다. 처음에는익숙하지 않은 영역이었지만, 점차 각 분야의 중요성과 그 역할을 깊이 이해하게 되었습니다. 프론트엔드 개발자로서 코드 구현에 집중하는 것뿐만 아니라, 전체적인 사용자 경험을 완성하는 데 기여할 수 있는 방안을 고민하게 되었습니다. 다양한 도전 과제를 해결하면서 성장할 수 있었지만, 여전히 부족한 부분도 많다는 것을 느낍니다. 예를 들어, 더 효율적인 협업 방법이나 코드 최적화에 대한 깊은 이해가 필요하다는 것을 깨달았습니다.
-
-
-### 7. 리팩토링 
- 

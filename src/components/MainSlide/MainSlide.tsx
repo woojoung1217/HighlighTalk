@@ -31,7 +31,7 @@ function MainSlide() {
             sizes="100%"
             src="/image/mainslide1.svg"
             alt="img"
-            loading="lazy"
+            priority={true}
           />
         </SwiperSlide>
 
@@ -42,8 +42,7 @@ function MainSlide() {
             sizes="100%"
             src="/image/mainslide2.svg"
             alt="img"
-            loading="lazy"
-            // 최적화를 위해 레이지 로딩
+            priority={true}
           />
         </SwiperSlide>
       </Swiper>

@@ -1,21 +1,27 @@
 'use client';
 
-import { useState } from 'react';
-import FileUpLoader from '@/components/FileUpload/FileUploader';
-import ProtectedRoute from '@/components/ProtectedRoute/ProtectedRoute';
+import { useState, lazy, Suspense } from 'react';
 import { shareURL } from '@/utils/shareURL';
 import { useSession } from '@/app/providers';
 import { useModalStore } from '@/store/ModalStore';
-import PayModal from '@/components/Modal/PayModal/PayModal';
 import { TEST_PRODUCT } from '@/data/TEST_PRODUCT';
-import ProductPayModalContents from '@/components/Modal/PayModal/PayModalContents/ProductPayModalContents';
 import { updateCoinData } from '@/serverActions/coinAction';
 import './_loveTestPage.scss';
 import { createOrderData, updateUserOrderList } from '@/serverActions/orderAction';
 import { OrderInfoType } from '@/types/order';
-import Modal from '@/components/Modal/Modal';
-import GuestPayModalContents from '@/components/Modal/PayModal/PayModalContents/GuestPayModalContents';
 import { useRouter } from 'next/navigation';
+import { LoadingSpinner } from '@/components/Spinner/Spinner';
+
+const FileUpLoader = lazy(() => import('@/components/FileUpload/FileUploader'));
+const ProtectedRoute = lazy(() => import('@/components/ProtectedRoute/ProtectedRoute'));
+const PayModal = lazy(() => import('@/components/Modal/PayModal/PayModal'));
+const ProductPayModalContents = lazy(
+  () => import('@/components/Modal/PayModal/PayModalContents/ProductPayModalContents')
+);
+const GuestPayModalContents = lazy(
+  () => import('@/components/Modal/PayModal/PayModalContents/GuestPayModalContents')
+);
+const Modal = lazy(() => import('@/components/Modal/Modal'));
 
 function LoveTestContainer({ totalCount }: { totalCount: number }) {
   const session = useSession();
@@ -82,7 +88,7 @@ function LoveTestContainer({ totalCount }: { totalCount: number }) {
                 <section className="test-page-content">
                   <h2 className="page-headerSub">
                     지금 까지 <span className="page-title-count">❤️{totalCount + 120}❤️</span>번의
-                    테스트가 진행 됐어요!
+                    테스트가 진행 되었어요!
                   </h2>
                   <p className="sub-p">하이라이톡에서 대화내용을 업로드 해 AI분석을 시작 하세요!</p>
                   <div className="test-page-action">
@@ -115,46 +121,49 @@ function LoveTestContainer({ totalCount }: { totalCount: number }) {
           )}
         </div>
         {currentStep === 2 && (
-          <>
+          <Suspense fallback={<LoadingSpinner />}>
             <ProtectedRoute setCurrentStep={setCurrentStep}>
-              {/* 인증된 사용자만 이 부분이 렌더링됨 */}
               <FileUpLoader />
             </ProtectedRoute>
-          </>
+          </Suspense>
         )}
       </div>
       {isOpen && session?.user && (
-        <PayModal
-          isOpen={isOpen}
-          onClose={closeModal}
-          title="결제를 진행합니다."
-          amount={100}
-          session={session}
-          content=""
-        >
-          <ProductPayModalContents
-            test={TEST_PRODUCT.lovetest}
-            coin={session?.user?.coin}
-            closeModal={closeModal}
-            handlePayButton={handlePayButton}
-          />
-        </PayModal>
+        <Suspense fallback={<LoadingSpinner />}>
+          <PayModal
+            isOpen={isOpen}
+            onClose={closeModal}
+            title="결제를 진행합니다."
+            amount={100}
+            session={session}
+            content=""
+          >
+            <ProductPayModalContents
+              test={TEST_PRODUCT.lovetest}
+              coin={session?.user?.coin}
+              closeModal={closeModal}
+              handlePayButton={handlePayButton}
+            />
+          </PayModal>
+        </Suspense>
       )}
 
       {isGuestModalOpen && (
-        <Modal
-          isOpen={isGuestModalOpen}
-          onClose={handleCloseGuestModal}
-          title="회원 전용 콘텐츠입니다."
-          content="로그인 후 이용해주세요!"
-          buttons={[]}
-        >
-          <GuestPayModalContents
-            isOpen={isOpen}
-            handleCloseModal={handleCloseGuestModal}
-            handleGoLoginButton={handleGoLoginButton}
-          />
-        </Modal>
+        <Suspense fallback={<LoadingSpinner />}>
+          <Modal
+            isOpen={isGuestModalOpen}
+            onClose={handleCloseGuestModal}
+            title="회원 전용 콘텐츠입니다."
+            content="로그인 후 이용해주세요!"
+            buttons={[]}
+          >
+            <GuestPayModalContents
+              isOpen={isOpen}
+              handleCloseModal={handleCloseGuestModal}
+              handleGoLoginButton={handleGoLoginButton}
+            />
+          </Modal>
+        </Suspense>
       )}
     </>
   );
