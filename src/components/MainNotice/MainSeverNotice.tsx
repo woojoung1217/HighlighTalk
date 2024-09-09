@@ -2,8 +2,6 @@ import { getNoticeData } from '@/serverActions/fetchServerAction/getNoticeData';
 import './_mainSeverNotice.scss';
 import Link from 'next/link';
 
-// 공지사항 입니다.
-
 interface TopItems {
   _id: number;
   title: string;
