@@ -19,6 +19,7 @@ const getData = async () => {
         'Content-Type': 'application/json',
         'client-id': `${CLIENT_ID}`,
       },
+      cache: 'force-cache',
     });
 
     if (!response.ok) {
